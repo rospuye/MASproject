@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Gestão de comentários - Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="CSSGERAL.css" rel="stylesheet" />
+    <script src="logout.js"></script>
+    <script src="gestaoComentariosCliente.js"></script>
+    <style>
+        input#submeterComentario, input#submeterRascunho {
+            letter-spacing: 0.02cm;
+            background: #6d158f;
+            color: #fff;
+            font-weight: bold;
+            font-family: Montserrat;
+            font-size: 12px;
+            text-shadow: 2px 2px 1px #3c0750;
+            padding: 14px;
+            text-transform: uppercase;
+            border: 1px solid #3c0750;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            border-radius: 0px;
+        }
+        .rascunho, .comentario {
+            box-shadow: 0px 0px 0px 4px #fff, 0px 0px 0px 5px #cb98e9, 0px 0px 0px 9px #fff, 0px 0px 0px 10px #cb98e9;
+            font-family: montserrat; 
+            font-size: 14px;
+            margin-bottom: 5%;
+        }
+        .btn.btn-light {
+            letter-spacing: 0.02cm;
+            background-color:#b71566;
+            color: #fff;
+            font-weight: bold;
+            font-family: Montserrat;
+            font-size: 12px;
+            text-shadow: 2px 2px 1px #9d105c;
+            padding: 14px;
+            text-transform: uppercase;
+            border: 1px solid #9d105c;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" style="background-color: #6d158f!important;">
+        <a class="navbar-brand" href="home.html"><img
+                src="https://showitprototipo.weebly.com/uploads/1/3/2/0/132057755/2logotipomas.png" width="80%" /></a>
+        <button class="navbar-toggler" id="hamburguer" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation" style="color: #fff; border: 0px;">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" style="font-family: Montserrat; text-align: right; margin-right: 10px">
+                <li class="nav-item">
+                    <a id="TE" class="nav-link" href="tipodeeventos.html">TIPO DE EVENTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AA" class="nav-link" href="areadeatuacao.html">ÁREAS DE ATUAÇÃO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AG" class="nav-link" href="localizacao.html">ALCANCE GEOGRÁFICO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="P" class="nav-link" href="parceiros.html">PARCEIROS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="C" class="nav-link" href="contactos.html">CONTACTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="F" class="nav-link" href="faq.html">FAQ</a>
+                </li>
+                <li id="aMinhaContaCliente" class="dropdown"
+                    style="margin-left: 8px; margin-right: 8px; box-shadow: 0px 3px 0px #cb98e9;">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        A minha conta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="definicoesCliente.html"> Definições</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal"> Gestão de Pedidos</a>
+                        <a class="dropdown-item" href="gestaoComentariosCliente.html"> Gestão de Comentários</a>
+                        <a class="dropdown-item" href="submeterpedido.html"> Submeter pedido</a>
+                        <a class="dropdown-item" href="candidaturafornecedor.html"> Candidar-se a fornecedor</a>
+                    </div>
+                </li>
+                <li class="nav-item" style="display: none;">
+                    <a id="LI" class="nav-link" href="login.html">LOGIN</a>
+                </li>
+                <li class="nav-item">
+                    <a id="LO" class="nav-link" onclick="logout()">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div
+        style="line-height: 25px; padding-bottom: 10px; background-color: #6d158f; border-bottom: 2px solid #cb98e9; text-shadow: 2px 2px 1px #3c0750; position: relative; top: -2px; padding-top: 20px; color: #cb98e9; text-align: center; font-family: amaranth; font-size: 26px;">
+        <br /><span></span><br /><br /></div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Gestão de Pedidos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosPorConfirmarCliente.html" class="btn btn-dark">Pedidos por confirmar</a>
+                    </div>
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosConfirmadosComContratoCliente.html" class="btn btn-dark">Pedidos em
+                            desenvolvimento</a>
+                    </div>
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosTerminadosCliente.html" class="btn btn-dark">Pedidos terminados</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <!-- COMENTÁRIOS EM DISPLAY -->
+        <div
+            style="line-height: 25px; padding-bottom: 20px; padding-top: 20px; padding-left: 0%; color: #cb98e9; font-weight: bold; font-family: amaranth; font-size: 35px; ;">
+            <br /><span>Comentários submetidos</span><br /><br /></div>
+            <p id="semComentarios" style="padding-left: 2%; font-family: montserrat; font-size: 15px;">[Sem comentários]</p>
+
+        <div id="todosOsComentarios"></div>
+
+        <script>displayComentarios();</script>
+        <script>cleanErrorMessages()</script>
+
+        <!-- FIM DOS COMENTÁRIOS EM DISPLAY -->
+
+        <!-- RASCUNHOS -->
+        <div id="rascunhos"
+            style="line-height: 25px; padding-bottom: 20px; padding-top: 20px; padding-left: 0%; color: #cb98e9; font-weight: bold; font-family: amaranth; font-size: 35px;">
+            <br /><span>Rascunhos</span><br /><br /></div>
+        <p id="semRascunhos" style="padding-left: 2%; font-family: montserrat; font-size: 15px;">[Sem rascunhos]</p>
+        <!-- FIM DOS RASCUNHOS -->
+        <div id="listaDeRascunhos"></div>
+        <script>displayRascunhos();</script>
+
+        <!-- FORM DE SUBMISSÃO DE COMENTÁRIOS -->
+        <div id="novoComentarioTitulo"
+            style="line-height: 25px; padding-bottom: 20px; padding-top: 20px; text-align: center; color: #cb98e9; font-weight: bold; font-family: amaranth; font-size: 35px;">
+            <br /><span>Novo comentário</span><br /><br /></div>
+        <div class="container">
+            <form id="formComentarios" action="#" method="post">
+                <div class="form-group">
+                    <div class="row col-md-12 justify-content-center">
+                        <label for="" class="col-md-2 col-form-label text-right"
+                            style="font-family: montserrat; font-size: 15px"><b>Avaliação</b></label></div><br>
+                    <div class="container justify-content-center" style="font-family: montserrat; font-size: 15px">
+                        <div class="row col-md-12 justify-content-center">
+                            <div class="col-md-1"></div>
+                            <input class="col-md-1" type="radio" id="1estrela" name="avaliacao" value="1 estrela">
+                            <label class="col-md-2" style="padding-left: 0px;" for="1estrela">1 estrela</label><br>
+                        </div>
+                        <div class="row col-md-12 justify-content-center">
+                            <div class="col-md-1"></div>
+                            <input class="col-md-1" type="radio" id="2estrelas" name="avaliacao" value="2 estrelas">
+                            <label class="col-md-2" style="padding-left: 0px;" for="2estrelas">2 estrelas</label><br>
+                        </div>
+                        <div class="row col-md-12 justify-content-center">
+                            <div class="col-md-1"></div>
+                            <input class="col-md-1" type="radio" id="3estrelas" name="avaliacao" value="3 estrelas">
+                            <label class="col-md-2" style="padding-left: 0px;" for="3estrelas">3 estrelas</label><br>
+                        </div>
+                        <div class="row col-md-12 justify-content-center">
+                            <div class="col-md-1"></div>
+                            <input class="col-md-1" type="radio" id="4estrelas" name="avaliacao" value="4 estrelas">
+                            <label class="col-md-2" style="padding-left: 0px;" for="4estrelas">4 estrelas</label><br>
+                        </div>
+                        <div class="row col-md-12 justify-content-center">
+                            <div class="col-md-1"></div>
+                            <input class="col-md-1" type="radio" id="5estrelas" name="avaliacao" value="5 estrelas">
+                            <label class="col-md-2" style="padding-left: 0px;" for="5estrelas">5 estrelas</label><br>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="hide col-md-10 text-danger col-form-label" id="radio_Error" style="display: none;">
+                            <small><i class="fa fa-exclamation-triangle"></i> deve selecionar uma das caixas</small>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="row justify-content-center">
+                        <label for="comments"
+                            class="col-md-2 col-form-label text-right" style="font-family: montserrat; font-size: 15px"><b>Comentário</b><br /><small>(Min:
+                                30chars)</small></label>
+                        <div class="col-md-4"><textarea rows="8" name="comments" id="comments"
+                                class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="hide col-md-10 text-danger col-form-label" id="comments_Error"
+                            style="display: none;">
+                            <small><i class="fa fa-exclamation-triangle"></i> comentário inválido</small></div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="hide col-md-10 text-danger col-form-label" id="comments_Error2"
+                            style="display: none;">
+                            <small><i class="fa fa-exclamation-triangle"></i> o rascunho está vazio</small></div>
+                    </div>
+                </div>
+                <br>
+                <hr />
+                <div class="text-center" style="padding-bottom: 5%;">
+                    <input id="submeterComentario" type="button" value="Submeter" class="btn btn-light"
+                        onclick="validaFormulario()" />
+                    <input id="submeterRascunho" type="button" value="Guardar Rascunho" class="btn btn-light"
+                        onclick="validaRascunho()" />
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="row justify-content-center" style="margin-top: 6%;">
+            <span
+                style="margin-bottom: 3%; text-align: center; font-family: lora; color: #ac87bc; text-align: justify; font-size: 12px;">Modelação
+                e Análise de Sistemas - Grupo 304 - 2019/2020</span>
+        </div>
+    </div>
+    <!-- FIM DO FORM DE SUBMISSÃO DE COMENTÁRIOS -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="JavaScript.js"></script>
+</body>
+
+</html>

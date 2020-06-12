@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Esquecer senha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://smtpjs.com/v2/smtp.js"></script>
+    <script src="esquecerSenha.js"></script>
+    <style>
+        a.nav-link {
+            letter-spacing: 0.05cm;
+            color: #fff !important;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 1px #3c0750;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+
+        li.nav-item {
+            margin-right: 14px !important;
+            margin-left: 14px !important;
+            letter-spacing: 0.05cm !important;
+            transition-duration: 0.5s;
+        }
+
+        li.nav-item:hover {
+            margin-right: 14px !important;
+            margin-left: 14px !important;
+            letter-spacing: 0.05cm !important;
+            transition-duration: 0.5s;
+        }
+
+        li.nav-item {
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        li.nav-item:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #b71566;
+            height: 3px;
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
+
+        li.nav-item:hover:before,
+        li.nav-item:focus:before,
+        li.nav-item:active:before {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        input#enviar {
+            letter-spacing: 0.02cm;
+            background: #6d158f;
+            color: #fff;
+            font-weight: bold;
+            font-family: Montserrat;
+            font-size: 12px;
+            text-shadow: 2px 2px 1px #3c0750;
+            padding: 14px;
+            text-transform: uppercase;
+            border: 1px solid #3c0750;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            border-radius: 0px;
+        }
+        input#email {
+            background: transparent;
+            border: 0px;
+            border-radius: 0px;
+            border-bottom: 1px solid #6d158f;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" style="background-color: #6d158f!important;">
+        <a class="navbar-brand" href="home.html"><img
+                src="https://showitprototipo.weebly.com/uploads/1/3/2/0/132057755/2logotipomas.png" width="80%" /></a>
+        <button class="navbar-toggler" id="hamburguer" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation" style="color: #fff; border: 0px;">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" style="font-family: Montserrat; text-align: right; margin-right: 10px">
+                <li class="nav-item">
+                    <a id="TE" class="nav-link" href="tipodeeventos.html">TIPO DE EVENTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AA" class="nav-link" href="areadeatuacao.html">ÁREAS DE ATUAÇÃO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AG" class="nav-link" href="localizacao.html">ALCANCE GEOGRÁFICO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="P" class="nav-link" href="parceiros.html">PARCEIROS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="C" class="nav-link" href="contactos.html">CONTACTOS</a>
+                </li>
+                <li class="nav-item ">
+                    <a id="F" class="nav-link" href="faq.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a id="LI" class="nav-link" href="login.html">LOGIN</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Gestão de Pedidos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosPorConfirmarCliente.html" class="btn btn-dark">Pedidos por confirmar</a>
+                    </div>
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosConfirmadosComContratoCliente.html" class="btn btn-dark">Pedidos em
+                            desenvolvimento</a>
+                    </div>
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosTerminadosCliente.html" class="btn btn-dark">Pedidos terminados</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row col-md-12 justify-content-end" style="margin-left: 0px; margin-right: 0px; padding-bottom: 10px; background-color: #6d158f; color: #fff; font-size: 20px; padding-right: 40px; padding-top: 0px!important;">
+        <i id="on" class="fa fa-toggle-on"></i>
+        <i id="off" style="transform: rotate(180deg); display: none; position: relative; top: 0px;" class="fa fa-toggle-on"></i>
+    </div>
+    <div style="line-height: 50px; background: url(https://i.imgur.com/tLX75h6.png); background-position: bottom;"><br /><br /><br /></div>
+    -->
+    <div
+        style="line-height: 25px; padding-bottom: 10px; background-color: #6d158f; border-bottom: 2px solid #cb98e9; text-shadow: 2px 2px 1px #3c0750; position: relative; top: -2px; padding-top: 20px; color: #cb98e9; text-align: center; font-family: amaranth; font-size: 38px;">
+        <br /><span>Recuperar senha</span><br /><br /></div>
+
+    <div class="container">
+        <div class="row justify-content-center" style="margin-top: 4%;">
+            <div class="col-lg-4 col-md-12">
+            </div>
+            <div class="col-lg-4 col-md-12"
+                style="background-color:#cb98e9; padding: 10px; box-shadow: 0px 0px 0px 4px #fff, 0px 0px 0px 5px #cb98e9, 0px 0px 0px 9px #fff, 0px 0px 0px 10px #cb98e9">
+                <form id="esquecerSenha" name="esquecerSenha" action="https://formspree.io/xeqrkgar" method="POST" enctype="text/plain">
+                    <div class="form-group">
+                        <div class="container">
+                            <label for="email" class="col-md-10 col-form-label"><b>E-mail</b></label>
+                            <div class="col-md-10"><input type="text" name="email" id="email" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center" style="padding-bottom: 1%;">
+                        <input type="button" id="enviar" class="btn btn-light" value="Enviar E-mail" onclick="mandarMail()">
+                        <!-- <button class="btn btn-light" onclick="mandarMail(); return false">Enviar E-mail</button> -->
+                        <!-- <input id="submitButton" type="button" value="Enviar E-mail" class="btn btn-light" onclick="mandarMail(); return false"/> -->
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-12">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center" style="margin-top: 6%;">
+            <span
+                style="margin-bottom: 3%; text-align: center; font-family: lora; color: #ac87bc; text-align: justify; font-size: 12px;">Modelação
+                e Análise de Sistemas - Grupo 304 - 2019/2020</span>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+   
+</body>
+
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Definições - Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet" />
+    <link href="CSSGERAL.css" rel="stylesheet" />
+    <script src="definicoesCliente.js"></script>
+    <script src="logout.js"></script>
+    <style>
+        input#alterarNome, input#alterarSobrenome, input#alterarEmail, input#alterarContacto {
+            letter-spacing: 0.02cm;
+            background: #6d158f;
+            color: #fff;
+            font-weight: bold;
+            font-family: Montserrat;
+            font-size: 12px;
+            text-shadow: 2px 2px 1px #3c0750;
+            padding: 14px;
+            text-transform: uppercase;
+            border: 1px solid #3c0750;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            border-radius: 0px;
+        }
+        input#confirmarSenha, input#apagarConta{
+            letter-spacing: 0.02cm;
+            background-color:#b71566;
+            color: #fff;
+            font-weight: bold;
+            font-family: Montserrat;
+            font-size: 12px;
+            text-shadow: 2px 2px 1px #9d105c;
+            padding: 14px;
+            text-transform: uppercase;
+            border: 1px solid #9d105c;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" style="background-color: #6d158f!important;">
+        <a class="navbar-brand" href="home.html"><img
+                src="https://showitprototipo.weebly.com/uploads/1/3/2/0/132057755/2logotipomas.png" width="80%" /></a>
+        <button class="navbar-toggler" id="hamburguer" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation" style="color: #fff; border: 0px;">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" style="font-family: Montserrat; text-align: right; margin-right: 10px">
+                <li class="nav-item">
+                    <a id="TE" class="nav-link" href="tipodeeventos.html">TIPO DE EVENTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AA" class="nav-link" href="areadeatuacao.html">ÁREAS DE ATUAÇÃO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AG" class="nav-link" href="localizacao.html">ALCANCE GEOGRÁFICO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="P" class="nav-link" href="parceiros.html">PARCEIROS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="C" class="nav-link" href="contactos.html">CONTACTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="F" class="nav-link" href="faq.html">FAQ</a>
+                </li>
+                <li id="aMinhaContaCliente" class="dropdown"
+                    style="margin-left: 8px; margin-right: 8px; box-shadow: 0px 3px 0px #cb98e9;">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        A minha conta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="definicoesCliente.html"> Definições</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal"> Gestão de Pedidos</a>
+                        <a class="dropdown-item" href="gestaoComentariosCliente.html"> Gestão de Comentários</a>
+                        <a class="dropdown-item" href="submeterpedido.html"> Submeter pedido</a>
+                        <a class="dropdown-item" href="candidaturafornecedor.html"> Candidar-se a fornecedor</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a id="LI" class="nav-link" href="login.html">LOGIN</a>
+                </li>
+                <li class="nav-item">
+                    <a id="LO" class="nav-link" onclick="logout()">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Gestão de Pedidos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosPorConfirmarCliente.html" class="btn btn-dark">Pedidos por confirmar</a>
+                    </div>
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosConfirmadosComContratoCliente.html" class="btn btn-dark">Pedidos em
+                            desenvolvimento</a>
+                    </div>
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosTerminadosCliente.html" class="btn btn-dark">Pedidos terminados</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="line-height: 25px; padding-bottom: 10px; background-color: #6d158f; border-bottom: 2px solid #cb98e9; text-shadow: 2px 2px 1px #3c0750; position: relative; top: -2px; padding-top: 20px; color: #cb98e9; text-align: center; font-family: amaranth; font-size: 26px;">
+        <br /><span>Definições de conta</span><br /><br /></div>
+
+
+    <div class="container">
+        <div class="row justify-content-center" style="margin-top: 4%;">
+            <div class="col-lg-3 col-md-12">
+            </div>
+            <div class="col-lg-6 col-md-12"
+                style="padding: 20px; background-color:#cb98e9; box-shadow: 0px 0px 0px 4px #fff, 0px 0px 0px 5px #cb98e9, 0px 0px 0px 9px #fff, 0px 0px 0px 10px #cb98e9">
+                <div class="row col-md-12" style="padding-bottom: 3%; padding-left: 5%;">
+                    <span class="col-md-4"
+                        style="padding-right: 1%; font-family: montserrat; font-size: 15px"><b>ID:</b></span>
+                    <span class="col-md-4" id="ID" style="font-family: montserrat; font-size: 15px"></span>
+                </div>
+                <div class="row col-md-12" style="padding-bottom: 3%; padding-left: 5%;">
+                    <span class="col-md-4"
+                        style="padding-right: 1%; font-family: montserrat; font-size: 15px"><b>Nome:</b></span>
+                    <span class="col-md-6" id="firstName"
+                        style="padding-right: 2%; font-family: montserrat; font-size: 15px"></span>
+                    <div class="col-md-2"> <input id="alterarNome" type="button" value="Alterar"
+                            style="margin-right: 20%;" class="btn btn-light" data-toggle="modal"
+                            data-target="#modalNome" />
+                    </div>
+                </div>
+                <div class="row col-md-12" style="padding-bottom: 3%; padding-left: 5%;">
+                    <span class="col-md-4"
+                        style="padding-right: 1%; font-family: montserrat; font-size: 15px"><b>Sobrenome:</b></span>
+                    <span class="col-md-6" id="lastName"
+                        style="padding-right: 2%; font-family: montserrat; font-size: 15px"></span>
+                    <div class="col-md-2"> <input id="alterarSobrenome" type="button" value="Alterar"
+                            style="margin-right: 20%;" class="btn btn-light" data-toggle="modal"
+                            data-target="#modalSobrenome" />
+                    </div>
+                </div>
+                <div class="row col-md-12" style="padding-bottom: 3%; padding-left: 5%;">
+                    <span class="col-md-4"
+                        style="padding-right: 1%; font-family: montserrat; font-size: 15px; width: 61px;"><b>E-mail:</b></span>
+                    <span class="col-md-6" id="email"
+                        style="padding-right: 2%; font-family: montserrat; font-size: 15px"></span>
+                    <div class="col-md-2"> <input id="alterarEmail" type="button" value="Alterar"
+                            style="margin-right: 20%;" class="btn btn-light" data-toggle="modal"
+                            data-target="#modalEmail" />
+                    </div>
+                </div>
+                <div class="row col-md-12" style="padding-bottom: 3%; padding-left: 5%;">
+                    <span class="col-md-4"
+                        style="padding-right: 1%; font-family: montserrat; font-size: 15px"><b>Contacto:</b></span>
+                    <span class="col-md-6" id="contacto"
+                        style="padding-right: 2%; font-family: montserrat; font-size: 15px"></span>
+                    <div class="col-md-2"> <input id="alterarContacto" type="button" value="Alterar"
+                            style="margin-right: 20%;" class="btn btn-light" data-toggle="modal"
+                            data-target="#modalContacto" />
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <div class="row col-md-12" style="padding-bottom: 3%; padding-left: 3%;">
+                    <div class="col-md-3"><input id="confirmarSenha" type="button" value="Alterar Senha"
+                            style="margin-right: 20%;" class="btn btn-light" data-toggle="modal"
+                            data-target="#modalSenha" /></div>
+                </div>
+                <div class="row col-md-12" style="padding-left: 3%;">
+                    <div class="col-md-3"><input id="apagarConta" type="button" value="Apagar Conta"
+                            class="btn btn-light" onclick="apagarConta()" /></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12">
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center" style="margin-top: 6%;">
+            <span
+                style="margin-bottom: 3%; text-align: center; font-family: lora; color: #ac87bc; text-align: justify; font-size: 12px;">Modelação
+                e Análise de Sistemas - Grupo 304 - 2019/2020</span>
+        </div>
+    </div>
+
+
+
+    <!-- MODALS -->
+    <!-- nome -->
+    <div class="modal fade" id="modalNome" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalNomeLabel">Alterar nome</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAlterarNome" action="#" method="post">
+                        <div class="container">
+                            <label for="firstNameChange" class="col-md-10 col-form-label"><b>Novo nome:</b></label>
+                            <div class="col-md-10"><input type="text" name="firstNameChange" id="firstNameChange"
+                                    class="form-control" /></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="alterarNome()">Alterar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sobrenome -->
+    <div class="modal fade" id="modalSobrenome" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalSobrenomeLabel">Alterar Sobrenome</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAlterarSobrenome" action="#" method="post">
+                        <div class="container">
+                            <label for="lastNameChange" class="col-md-10 col-form-label"><b>Novo Sobrenome:</b></label>
+                            <div class="col-md-10"><input type="text" name="lastNameChange" id="lastNameChange"
+                                    class="form-control" /></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="alterarSobrenome()">Alterar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- email -->
+    <div class="modal fade" id="modalEmail" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEmailLabel">Alterar E-mail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAlterarEmail" action="#" method="post">
+                        <div class="container">
+                            <label for="emailChange" class="col-md-10 col-form-label"><b>Novo E-mail:</b></label>
+                            <div class="col-md-10"><input type="text" name="emailChange" id="emailChange"
+                                    class="form-control" /></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="alterarEmail()">Alterar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- contacto -->
+    <div class="modal fade" id="modalContacto" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalContactoLabel">Alterar Contacto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formAlterarContacto" action="#" method="post">
+                        <div class="container">
+                            <label for="contactoChange" class="col-md-10 col-form-label"><b>Novo Contacto:</b></label>
+                            <div class="col-md-10"><input type="text" name="contactoChange" id="contactoChange"
+                                    class="form-control" /></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="alterarContacto()">Alterar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- senha -->
+    <div class="modal fade" id="modalSenha" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalSenhaLabel">Confirmação de Senha</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formConfirmarSenha" action="#" method="post">
+                        <div class="container">
+                            <label for="senhaChange" class="col-md-10 col-form-label"><b>Nova Senha:</b></label>
+                            <div class="col-md-10"><input type="password" name="senhaChange" id="senhaChange"
+                                    class="form-control" /></div>
+                        </div>
+                        <div class="container">
+                            <label for="senhaChange2" class="col-md-10 col-form-label"><b>Confirme Nova
+                                    Senha:</b></label>
+                            <div class="col-md-10"><input type="password" name="senhaChange2" id="senhaChange2"
+                                    class="form-control" /></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="alterarSenha()">Confirmar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END OF MODALS -->
+
+    <script>
+        var flag = 0;
+        for (i = 0; i < localStorage.length; i++) {
+            var item = localStorage.getItem(localStorage.key(i));
+            var itemName = localStorage.key(i);
+            if (item.includes('"tipo":"login"')) {
+                flag = 1;
+                document.getElementById("aMinhaContaCliente").style.display = "block";
+                document.getElementById("LI").style.display = "none";
+                document.getElementById("LO").style.display = "block";
+                break;
+            }
+        }
+        if (flag == 0) {
+            document.getElementById("aMinhaContaCliente").style.display = "none";
+            document.getElementById("LI").style.display = "block";
+            document.getElementById("LO").style.display = "none";
+        }
+    </script>
+
+    <script>main();</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pedidos terminados - Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <link href="CSSGERAL.css" rel="stylesheet" />
+    <script src="pedidosTerminadosCliente.js"></script>
+    <script src="logout.js"></script>
+    <style>
+        #enviarpedido {
+            letter-spacing: 0.02cm;
+            background: #b71566 !important;
+            color: #fff !important;
+            font-weight: bold;
+            font-family: Montserrat;
+            line-height: 10px;
+            text-transform: uppercase;
+            font-size: 12px;
+            box-shadow: 0px 0px 0px transparent !important;
+            outline: 0px !important;
+            border-radius: 0px !important;
+            border: 1px solid #960058;
+            text-shadow: 2px 2px 1px #960058;
+            padding: 14px;
+        }
+
+        .radioans {
+            color: #666;
+        }
+
+        label {
+            color: #6d158f;
+            font-family: montserrat;
+            font-size: 15px;
+        }
+
+        .ui-widget-header {
+            border: 0px solid #aaaaaa;
+            color: #6d158f;
+            font-family: montserrat;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: underline;
+            background-color: #fff !important;
+        }
+
+        th.ui-datepicker-week-end,
+        .ui-datepicker th {
+            font-family: montserrat;
+            font-size: 13px;
+        }
+
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default {
+            background: #b71566 !important;
+            font-weight: normal;
+            color: #fff;
+            font-family: montserrat;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .ui-state-default:hover {
+            background: #6d158f !important;
+            font-weight: normal;
+            color: #fff;
+            font-family: montserrat;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" style="background-color: #6d158f!important;">
+        <a class="navbar-brand" href="home.html"><img
+                src="https://showitprototipo.weebly.com/uploads/1/3/2/0/132057755/2logotipomas.png" width="80%" /></a>
+        <button class="navbar-toggler" id="hamburguer" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation" style="color: #fff; border: 0px;">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" style="font-family: Montserrat; text-align: right; margin-right: 10px">
+                <li class="nav-item">
+                    <a id="TE" class="nav-link" href="tipodeeventos.html">TIPO DE EVENTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AA" class="nav-link" href="areadeatuacao.html">ÁREAS DE ATUAÇÃO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AG" class="nav-link" href="localizacao.html">ALCANCE GEOGRÁFICO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="P" class="nav-link" href="parceiros.html">PARCEIROS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="C" class="nav-link" href="contactos.html">CONTACTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="F" class="nav-link" href="faq.html">FAQ</a>
+                </li>
+                <li id="aMinhaContaCliente" class="dropdown"
+                    style="margin-left: 8px; margin-right: 8px; box-shadow: 0px 3px 0px #cb98e9;">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        A minha conta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="definicoesCliente.html"> Definições</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal"> Gestão de Pedidos</a>
+                        <a class="dropdown-item" href="gestaoComentariosCliente.html"> Gestão de Comentários</a>
+                        <a class="dropdown-item" href="submeterpedido.html"> Submeter pedido</a>
+                        <a class="dropdown-item" href="candidaturafornecedor.html"> Candidar-se a fornecedor</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a id="LI" class="nav-link" href="login.html">LOGIN</a>
+                </li>
+                <li class="nav-item">
+                    <a id="LO" class="nav-link" onclick="logout()">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Gestão de Pedidos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosPorConfirmarCliente.html" class="btn btn-dark">Pedidos por confirmar</a>
+                    </div>
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosConfirmadosComContratoCliente.html" class="btn btn-dark">Pedidos em
+                            desenvolvimento</a>
+                    </div>
+                    <div class="row" style="margin: 1%">
+                        <a href="pedidosTerminadosCliente.html" class="btn btn-dark">Pedidos terminados</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="line-height: 25px; padding-bottom: 10px; background-color: #6d158f; border-bottom: 2px solid #cb98e9; text-shadow: 2px 2px 1px #3c0750; position: relative; top: -2px; padding-top: 20px; color: #cb98e9; text-align: center; font-family: amaranth; font-size: 40px;">
+        <br /><span>Pedidos terminados</span><br /><br /></div>
+    <br>
+    <br>
+    <script>
+        var flag = 0;
+        for (i = 0; i < localStorage.length; i++) {
+            var item = localStorage.getItem(localStorage.key(i));
+            var itemName = localStorage.key(i);
+            if (item.includes('"tipo":"login"')) {
+                flag = 1;
+                document.getElementById("aMinhaContaCliente").style.display = "block";
+                document.getElementById("LI").style.display = "none";
+                document.getElementById("LO").style.display = "block";
+                break;
+            }
+        }
+        if (flag == 0) {
+            document.getElementById("aMinhaContaCliente").style.display = "none";
+            document.getElementById("LI").style.display = "block";
+            document.getElementById("LO").style.display = "none";
+        }
+    </script>
+    <div class="container">
+        <div id="nenhumPedido" class="row" style="display: none;">
+            <div>
+                <div>
+                    <h2
+                        style="font-family: amaranth; font-size: 40px; color: #620039; text-shadow: 1px 1px 0px #cb98e9; text-align: center;">
+                        Oops!</h2>
+                    <br />
+                    <p style="font-family: amaranth; font-size: 20px; color: #620039; text-align: center;">Até agora,
+                        não existem pedidos terminados no sistema.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <script>displayPedidos();</script>
+
+        <div id="todosOsPedidos"></div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center" style="margin-top: 6%;">
+            <br>
+            <span
+                style="margin-bottom: 3%; text-align: center; font-family: lora; color: #ac87bc; text-align: justify; font-size: 12px;">Modelação
+                e Análise de Sistemas - Grupo 304 - 2019/2020</span>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="JavaScript.js"></script>
+
+</body>
+
+</html>

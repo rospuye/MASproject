@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Alcance geográfico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet" />
+    <link href="CSSGERAL.css" rel="stylesheet" />
+    <script src="logout.js"></script>
+    <style>
+        #conteudoaviso {
+            color: #ffffff;
+            text-align: justify;
+            text-shadow: 2px 2px 1px #620039;
+            font-family: montserrat;
+            font-size: 15px;
+            word-spacing: 0.05cm;
+            vertical-align: middle;
+        }
+
+        .popup-overlay {
+            visibility: hidden;
+            position: absolute;
+            background: #b71566;
+            border: 6px double #fff;
+            padding: 30px !important;
+            width: 50%;
+            border-radius: 20px;
+            left: 25%;
+        }
+
+            .popup-overlay.active {
+                /*displays pop-up when "active" class is present*/
+                visibility: visible;
+                text-align: center;
+            }
+
+        .popup-content {
+            /*Hides pop-up content when there is no "active" class */
+            visibility: hidden;
+        }
+
+            .popup-content.active {
+                /*Shows pop-up content when "active" class is present */
+                visibility: visible;
+            }
+
+        button {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 30px;
+            margin: .20rem;
+            font-size: 1rem;
+            color: #666666;
+            background: #ffffff;
+            border: 1px solid #666666;
+        }
+
+            button:hover {
+                border: 1px solid #666666;
+                background: #666666;
+                color: #ffffff;
+            }
+
+        select#distritos {
+            border: 0px;
+            font-family: montserrat;
+            font-weight: bold;
+            font-size: 13px;
+            background-color: transparent;
+            text-transform: uppercase;
+            color: #b88fc9;
+            outline: 0px;
+            letter-spacing: 0.02cm;
+            border-bottom: 2px solid #b88fc9 !important;
+        }
+
+            select#distritos:focus {
+                outline: 0px;
+            }
+
+        .x {
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 0.02cm;
+            outline: 0px !important;
+            border: 1px solid #6d158f !important;
+            box-shadow: 0px 0px 1px 0px #6d158f;
+            background-color: #b88fc9;
+            color: #6d158f;
+            margin-top: 5px !important;
+            margin-bottom: 5px !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" style="background-color: #6d158f!important;">
+        <a class="navbar-brand" href="home.html"><img src="https://showitprototipo.weebly.com/uploads/1/3/2/0/132057755/2logotipomas.png" width="80%" /></a>
+        <button class="navbar-toggler" id="hamburguer" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color: #fff; border: 0px;">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" style="font-family: Montserrat; text-align: right; margin-right: 10px">
+                <li class="nav-item">
+                    <a id="TE" class="nav-link" href="tipodeeventos.html">TIPO DE EVENTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="AA" class="nav-link" href="areadeatuacao.html">ÁREAS DE ATUAÇÃO</a>
+                </li>
+                <li class="nav-item" style="box-shadow: 0px 3px 0px #cb98e9; ">
+                    <a id="AG" class="nav-link" href="localizacao.html">ALCANCE GEOGRÁFICO</a>
+                </li>
+                <li class="nav-item">
+                    <a id="P" class="nav-link" href="parceiros.html">PARCEIROS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="C" class="nav-link" href="contactos.html">CONTACTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a id="F" class="nav-link" href="faq.html">FAQ</a>
+                </li>
+                <li id="aMinhaContaCliente" class="dropdown" style="margin-left: 8px; margin-right: 8px; ">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        A minha conta
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="definicoesCliente.html">  Definições</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal">  Gestão de Pedidos</a>
+                        <a class="dropdown-item" href="gestaoComentariosCliente.html">  Gestão de Comentários</a>
+                        <a class="dropdown-item" href="submeterpedido.html">  Submeter pedido</a>
+                        <a class="dropdown-item" href="candidaturafornecedor.html">  Candidar-se a fornecedor</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a id="LI" class="nav-link" href="login.html">LOGIN</a>
+                </li>
+                <li class="nav-item">
+                    <a id="LO" class="nav-link" onclick="logout()">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Gestão de Pedidos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin: 1%">
+                    <a href="pedidosPorConfirmarCliente.html" class="btn btn-dark">Pedidos por confirmar</a>
+                </div>
+                <div class="row" style="margin: 1%">
+                    <a href="pedidosConfirmadosComContratoCliente.html" class="btn btn-dark">Pedidos em desenvolvimento</a>
+                </div>
+                <div class="row" style="margin: 1%">
+                    <a href="pedidosTerminadosCliente.html" class="btn btn-dark">Pedidos terminados</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--<div class="row col-md-12 justify-content-end" style="margin-left: 0px; margin-right: 0px; padding-bottom: 10px; background-color: #6d158f; color: #fff; font-size: 20px; padding-right: 40px; padding-top: 0px!important;">
+        <i id="on" class="fa fa-toggle-on"></i>
+        <i id="off" style="transform: rotate(180deg); display: none; position: relative; top: 0px;" class="fa fa-toggle-on"></i>
+    </div>
+    <div style="line-height: 50px; background: url(https://i.imgur.com/tLX75h6.png); background-position: bottom;"><br /><br /><br /></div>
+    -->
+    <div style="line-height: 25px; padding-bottom: 10px; background-color: #6d158f; border-bottom: 2px solid #cb98e9; text-shadow: 2px 2px 1px #3c0750; position: relative; top: -2px; padding-top: 20px; color: #cb98e9; text-align: center; font-family: amaranth; font-size: 18px;"><br /><span>A Show It, numa fase inicial, limita o alcance geográfico dos serviços e produtos que oferece aos clientes apenas a Portugal Continental.</span><br /><br /></div>
+
+    <div class="container">
+        <br />
+        <br />
+        <div class="row">
+            <div class="popup-overlay" style="z-index: 10000">
+                <!--Creates the popup content-->
+                <div class="popup-content">
+                    <h2 id="aviso" style="font-family: amaranth; font-size: 40px; color: #fff; text-shadow: 1px 1px 0px #620039">Aviso</h2>
+                    <br />
+                    <p id="conteudoaviso">Esta página é atualizada semanalmente. Caso a região que deseja não se encontre disponível no momento, poderá sempre consultar se o seu estado de disponibilidade mudou quando uma nova semana se iniciar.</p>
+                    <!--popup's close button-->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <select onchange="myFunction()" name="distritos" id="distritos">
+                    <option class="x" id="null" value="Null" selected>Selecione um distrito</option>
+                    <option class="x" value="1">Aveiro</option>
+                    <option class="x" value="2">Beja</option>
+                    <option class="x" value="3">Braga</option>
+                    <option class="x" value="4">Bragança</option>
+                    <option class="x" value="5">Castelo Branco</option>
+                    <option class="x" value="6">Coimbra</option>
+                    <option class="x" value="7">Évora</option>
+                    <option class="x" value="8">Faro</option>
+                    <option class="x" value="9">Guarda</option>
+                    <option class="x" value="10">Leiria</option>
+                    <option class="x" value="11">Lisboa</option>
+                    <option class="x" value="12">Portalegre</option>
+                    <option class="x" value="13">Porto</option>
+                    <option class="x" value="14">Santarém</option>
+                    <option class="x" value="15">Setúbal</option>
+                    <option class="x" value="16">Viana do Castelo</option>
+                    <option class="x" value="17">Vila Real</option>
+                    <option class="x" value="18">Viseu</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-12 justify-content-center">
+                <img id="img2" width="70%" src="https://i.imgur.com/lGKk6p3.jpg" />
+            </div>
+            <div class="col-md-1 col-sm-12 justify-content-center">
+            </div>
+            <div class="col-md-2 col-sm-12 justify-content-center">
+                <i class="fa fa-circle" id="rosa" style="color: #ff698f"></i><span style="color: #666; font-size: 13px; padding-left: 5px; font-family: montserrat; font-weight: bold" id="disponivel">Disponível</span>
+                <br />
+                <i class="fa fa-circle" id="roxo" style="color: #d969ff"></i><span style="color: #666; font-size: 13px; padding-left: 5px; font-family: montserrat; font-weight: bold" id="indisponivel">Indisponível</span>
+            </div>
+            <div class="col-md-1 col-sm-12 justify-content-center">
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link bolinha" href="tipodeeventos.html"><span>&#9899;</span></a></li>
+                <li class="page-item"><a class="page-link bolinha" href="areadeatuacao.html"><span>&#9899;</span></a></li>
+                <li class="page-item"><a class="page-link bolinha" href="home.html"><span>&#9899;</span></a></li>
+                <li class="page-item"><a class="page-link bolinha" href="localizacao.html"><span>&#9899;</span></a></li>
+                <li class="page-item"><a class="page-link bolinha" href="parceiros.html"><span>&#9899;</span></a></li>
+            </ul>
+        </nav>
+        <br />
+        <br />
+        <br />
+        <div class="row justify-content-center">
+            <span style="text-align: center; font-family: lora; color: #ac87bc; text-align: justify; font-size: 12px;">Modelação e Análise de Sistemas - Grupo 304 - 2019/2020</span>
+        </div>
+        <br />
+    </div>
+
+    <script>
+        var flag = 0;
+        for (i=0; i<localStorage.length; i++){
+            var item = localStorage.getItem(localStorage.key(i));
+            var itemName = localStorage.key(i);
+            if (item.includes('"tipo":"login"')){
+                flag = 1;
+                document.getElementById("aMinhaContaCliente").style.display = "block";
+                document.getElementById("LI").style.display = "none";
+                document.getElementById("LO").style.display = "block";
+                break;
+            }
+        }
+        if (flag==0){
+            document.getElementById("aMinhaContaCliente").style.display = "none";
+            document.getElementById("LI").style.display = "block";
+            document.getElementById("LO").style.display = "none";
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="JavaScript.js"></script>
+    <script>
+        $(document).ready(function () {
+            var isshow = localStorage.getItem('isshow');
+            if (isshow == null) {
+                localStorage.setItem('isshow', 1);
+                $(".popup-overlay, .popup-content").addClass("active");
+                $("body").css('opacity', '0.7');
+
+                //removes the "active" class to .popup and .popup-content when the "Close" button is clicked
+                $("body").click(function () {
+                    $(".popup-overlay, .popup-content").removeClass("active");
+                    $("body").css('opacity', '1.0');
+                });
+            };
+
+            $('select#distritos option[value=Null]').attr('selected', 'selected');
+            $("#distritos").change(function () {
+                var value = this.value;
+                if (value == 16) {
+                   
+                        $("#img2").attr("src", "https://i.imgur.com/3AOzpNr.jpg");
+                    
+                }
+
+                if (value == 3) {
+                   
+                        $("#img2").attr("src", "https://i.imgur.com/7lvQs6X.jpg");
+                    
+                }
+                if (value == 17) {
+                  
+                        $("#img2").attr("src", "https://i.imgur.com/F08rXeL.jpg");
+                   
+                }
+                if (value == 4) {
+                   
+                        $("#img2").attr("src", "https://i.imgur.com/RIyMiWo.jpg");
+                   
+                }
+                if (value == 13) {
+                        $("#img2").attr("src", "https://i.imgur.com/ae6Xdkb.jpg");
+                    
+                }
+                if (value == 9) {
+                       $("#img2").attr("src", "https://i.imgur.com/7LJNhjf.jpg");
+                    
+                }
+                if (value == 18) {
+                      $("#img2").attr("src", "https://i.imgur.com/OaoOBHY.jpg");
+                   
+                }
+
+                if (value == 1) {
+                       $("#img2").attr("src", "https://i.imgur.com/cV4ms1D.jpg");
+                   
+                }
+
+                if (value == 6) {
+                       $("#img2").attr("src", "https://i.imgur.com/zq9zmWX.jpg");
+                   
+                }
+                if (value == 10) {
+                       $("#img2").attr("src", "https://i.imgur.com/aQBiNvY.jpg");
+                    
+                }
+                if (value == 11) {
+                        $("#img2").attr("src", "https://i.imgur.com/jlMV8K4.jpg");
+                    
+                }
+                if (value == 14) {
+                       $("#img2").attr("src", "https://i.imgur.com/tqx566X.jpg");
+                    
+                }
+                if (value == 5) {
+                        $("#img2").attr("src", "https://i.imgur.com/KUYzvJD.jpg");
+                   
+                }
+                if (value == 12) {
+                        $("#img2").attr("src", "https://i.imgur.com/Uo9a0QW.jpg");
+                   
+                }
+                if (value == 8) {
+                       $("#img2").attr("src", "https://i.imgur.com/XHTitgL.jpg");
+                   
+                }
+                if (value == 15) {
+                        $("#img2").attr("src", "https://i.imgur.com/NCspvGn.jpg");
+                   
+                }
+
+                if (value == 2) {
+                        $("#img2").attr("src", "https://i.imgur.com/8VOY9Pz.jpg");
+                   
+                }
+
+                if (value == 7) {
+                        $("#img2").attr("src", "https://i.imgur.com/nfNr06O.jpg");
+                    
+                }
+            });
+
+
+
+
+        });
+    </script>
+</body>
+</html>
